@@ -6,7 +6,7 @@ A Command Line Interface for interacting with OpenAI's API. There is additional 
 1.  Clone the repo and add a .env file with your OpenAI API Key.
 
     Example:
-    ~/.env should contain
+    .env should contain
     ```
     OPENAI_KEY = abc123secretkey
     ```
