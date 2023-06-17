@@ -3,6 +3,7 @@ import json
 from decouple import config
 
 API_KEY = config('OPENAI_KEY')
+print(API_KEY)
 
 openai.api_key = API_KEY
 
@@ -21,7 +22,7 @@ def get_current_weather(location, unit="fahrenheit"):
 # Step 1, send model the user query and what functions it has access to
 def run_conversation():
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo-0613",
+        model="text-curie-001",
         messages=[{"role": "user", "content": "What's the weather like in Boston?"}],
         functions=[
             {
@@ -58,7 +59,7 @@ def run_conversation():
 
         # Step 4, send model the info on the function call and function response
         second_response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo-0613",
+            model="text-curie-001",
             messages=[
                 {"role": "user", "content": "What is the weather like in boston?"},
                 message,
