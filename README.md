@@ -14,3 +14,20 @@ A Command Line Interface for interacting with OpenAI's API. There is additional 
     You want to make sure this key is not shared.
 
 2. Run HypothesizerCLI.py from your terminal, follow the prompts.
+
+
+## Using ParseJSON.py:
+
+Usage:
+```python3 ParseJSON.py functionName "fileName.json"```
+
+### List of functions:
+1. exampleEntry
+2. entireDataset
+3. getTypeValues
+4. countOccurrences
+5. withoutCodeCoverage
+6. firstCodeCoverage
+
+Example:
+```python3 ParseJSON.py exampleEntry "recording.json"```
