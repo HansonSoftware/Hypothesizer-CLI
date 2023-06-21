@@ -161,7 +161,7 @@ def withoutCodeCoverage(fileName):
                 if section[key] == "codeCoverage":
                     break
                 else:
-                    print("\n", section[key], ":", section)
+                    print("\n", "Section", i, ":", section)
 
     # Close the file
     file.close()
@@ -201,4 +201,8 @@ def firstCodeCoverage(fileName):
 # This allows for calling a specific funtion from the command line.
 # Usage: python3 ParseJSON.py functionName "fileName.json"
 if __name__ == "__main__":
-    globals()[sys.argv[1]](sys.argv[2])
+    recordingPath = "./recordings/" + sys.argv[2]
+    globals()[sys.argv[1]](recordingPath)
+
+    # If your recording is not in the recordings directory, uncomment the following line.
+    # globals()[sys.argv[1]](sys.argv[2])
