@@ -199,7 +199,7 @@ def firstCodeCoverage(fileName):
 
 
 # This allows for calling a specific funtion from the command line.
-# Usage: python3 ParseJSON.py functionName "fileName.json"
+# Usage: python3 ParseRecordings.py functionName "fileName.json"
 if __name__ == "__main__":
     recordingPath = "./recordings/" + sys.argv[2]
     globals()[sys.argv[1]](recordingPath)

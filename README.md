@@ -1,4 +1,5 @@
 # Hypothesizer-CLI
+
 A Command Line Interface for interacting with OpenAI's API. There is additional functionality built on top to support [Hypothesizer](https://github.com/Alaboudi1/Hypothesizer-Debugger).
 
 ## Getting Started:
@@ -7,21 +8,22 @@ A Command Line Interface for interacting with OpenAI's API. There is additional 
 
     Example:
     .env should contain
+
     ```
     OPENAI_KEY = abc123secretkey
     ```
 
     You want to make sure this key is not shared.
 
-2. Run HypothesizerCLI.py from your terminal, follow the prompts.
+2.  Run HypothesizerCLI.py from your terminal, follow the prompts.
 
-
-## Using ParseJSON.py:
+## Using ParseRecordings.py:
 
 Usage:
-```python3 ParseJSON.py functionName "fileName.json"```
+`python3 ParseRecordings.py functionName "fileName.json"`
 
 ### List of functions:
+
 1. exampleEntry
 2. entireDataset
 3. getTypeValues
@@ -30,4 +32,16 @@ Usage:
 6. firstCodeCoverage
 
 Example:
-```python3 ParseJSON.py exampleEntry "recording.json"```
+`python3 ParseRecordings.py exampleEntry "example_recording.json"`
+
+## Using ParseHypotheses.py:
+
+Usage:
+`python3 ParseHypotheses.py functionName "fileName.json"`
+
+### List of functions:
+
+1. exampleHypothesis
+
+Example:
+`python3 ParseHypotheses.py exampleHypothesis "hypotheses.json"`
