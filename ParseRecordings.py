@@ -161,7 +161,7 @@ def withoutCodeCoverage(fileName):
                 if section[key] == "codeCoverage":
                     break
                 else:
-                    print("\n", "Section", i, ":", section)
+                    print("\n", section)
 
     # Close the file
     file.close()

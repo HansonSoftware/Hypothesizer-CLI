@@ -25,7 +25,10 @@ def allHypotheses():
     hypotheses = data["hypotheses"]
 
     for i in range(0, len(hypotheses)):
-        print(hypotheses[i]["id"], ":\n")
+        print(hypotheses[i]["id"], ":")
+        keys = hypotheses[i].keys()
+        for key in keys:
+            print(key, ":", hypotheses[i][key])
 
 
 # exampleHypothesis:
