@@ -34,14 +34,14 @@ Usage:
 Example:
 `python3 ParseRecordings.py exampleEntry "example_recording.json"`
 
-## Using ParseHypotheses.py:
+## Using ParseDatabase.py:
 
 Usage:
-`python3 ParseHypotheses.py functionName "fileName.json"`
+`python3 ParseDatabse.py functionName`
 
 ### List of functions:
 
 1. exampleHypothesis
 
 Example:
-`python3 ParseHypotheses.py exampleHypothesis`
+`python3 ParseDatabse.py allHypotheses`
