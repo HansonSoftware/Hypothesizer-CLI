@@ -44,4 +44,4 @@ Usage:
 1. exampleHypothesis
 
 Example:
-`python3 ParseHypotheses.py exampleHypothesis "hypotheses.json"`
+`python3 ParseHypotheses.py exampleHypothesis`
