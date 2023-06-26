@@ -33,7 +33,7 @@ def entireDataset(fileName):
     # Load JSON object as a dict
     data = json.load(file)
 
-    for i in range(0, len(data) - 1):
+    for i in range(0, len(data)):
         print("\nSection:", i + 1)
         section = data[i]
         keys = section.keys()
@@ -58,7 +58,7 @@ def getTypeValues(fileName):
     data = json.load(file)
 
     typeValues = set(())
-    for i in range(0, len(data) - 1):
+    for i in range(0, len(data)):
         section = data[i]
         keys = section.keys()
         for key in keys:
@@ -93,7 +93,7 @@ def countOccurrences(fileName):
     numReqWillBeSent = 0
     numMouseOver = 0
 
-    for i in range(0, len(data) - 1):
+    for i in range(0, len(data)):
         section = data[i]
         keys = section.keys()
         for key in keys:
@@ -152,7 +152,7 @@ def withoutCodeCoverage(fileName):
     # Convert to dict
     data = json.load(file)
 
-    for i in range(0, len(data) - 1):
+    for i in range(0, len(data)):
         section = data[i]
         keys = section.keys()
         for key in keys:
@@ -179,7 +179,7 @@ def firstCodeCoverage(fileName):
     object = {}
 
     # Get the first occurrence of a "Code Coverage" object:
-    for i in range(0, len(data) - 1):
+    for i in range(0, len(data)):
         section = data[i]
         keys = section.keys()
         for key in keys:
