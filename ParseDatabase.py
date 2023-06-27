@@ -23,12 +23,46 @@ def allEvidence():
 # Output: Prints all hypotheses objects in the JSON.
 def allHypotheses():
     hypotheses = data["hypotheses"]
-
     for i in range(0, len(hypotheses)):
-        print(hypotheses[i]["id"], ":")
+        print(
+            "------------------------------------------------------------------------------------\n"
+        )
+        print("%s:\n" % hypotheses[i]["id"].replace("_", " "))
         keys = hypotheses[i].keys()
         for key in keys:
-            print(key, ":", hypotheses[i][key])
+            section = hypotheses[i][key]
+            if key == "tags":
+                print("Tags:")
+                tagCount = 1
+                for tag in section:
+                    print("\t%d." % tagCount, tag)
+                    tagCount = tagCount + 1
+                continue
+            if key == "evidence":
+                print("Related Evidence:")
+                count = 1
+                for evidence in section:
+                    print("\tEvidence %d." % count)
+                    evidenceKeys = evidence.keys()
+                    for evidenceKey in evidenceKeys:
+                        if evidenceKey == "HowToFix":
+                            print("\t\t%s:" % evidenceKey)
+                            steps = evidence[evidenceKey]["steps"]
+                            print("\t\tSteps:")
+                            stepCount = 1
+                            for j in range(0, len(steps)):
+                                stepKeys = steps[j].keys()
+                                print("\t\t\tStep %d." % stepCount)
+                                for stepKey in stepKeys:
+                                    print(
+                                        "\t\t\t\t%s: %s" % (stepKey, steps[j][stepKey])
+                                    )
+                                stepCount = stepCount + 1
+                            continue
+                        print("\t\t%s:" % evidenceKey, evidence[evidenceKey])
+                    count = count + 1
+                continue
+            print("%s:" % key, section)
 
 
 # exampleHypothesis:
