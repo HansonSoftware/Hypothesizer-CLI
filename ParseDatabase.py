@@ -20,8 +20,20 @@ def allEvidence():
     keys = evidence.keys()
     for key in keys:
         if key == "API_calls":
-            print(key)
-            print(len(evidence[key]))
+            apiCalls = evidence[key]
+            apiCallCount = 1
+            print("\n%s:" % key)
+            for i in range(0, len(apiCalls)):
+                apiCallKeys = apiCalls[i].keys()
+                print("\tAPI Call %d." % apiCallCount)
+                for apiCallKey in apiCallKeys:
+                    if apiCallKey == "patterns":
+                        print("\t\tpatterns:")
+                        for j in range(0, len(apiCalls[i][apiCallKey])):
+                            print("\t\t\t%s" % apiCalls[i][apiCallKey][j])
+                        continue
+                    print("\t\t%s: %s" % (apiCallKey, apiCalls[i][apiCallKey]))
+                apiCallCount = apiCallCount + 1
         if key == "DOM_events":
             domEvents = evidence[key]
             domEventCount = 1
@@ -65,9 +77,33 @@ def allEvidence():
                 networkEventCount = networkEventCount + 1
 
 
+# apiCalls:
+# Input: None
+# Output: Prints all API Call evidence objects in the DB.
+def apiCalls():
+    evidence = data["evidence"]
+    keys = evidence.keys()
+    for key in keys:
+        if key == "API_calls":
+            apiCalls = evidence[key]
+            apiCallCount = 1
+            print("\n%s:" % key)
+            for i in range(0, len(apiCalls)):
+                apiCallKeys = apiCalls[i].keys()
+                print("\tAPI Call %d." % apiCallCount)
+                for apiCallKey in apiCallKeys:
+                    if apiCallKey == "patterns":
+                        print("\t\tpatterns:")
+                        for j in range(0, len(apiCalls[i][apiCallKey])):
+                            print("\t\t\t%s" % apiCalls[i][apiCallKey][j])
+                        continue
+                    print("\t\t%s: %s" % (apiCallKey, apiCalls[i][apiCallKey]))
+                apiCallCount = apiCallCount + 1
+
+
 # domEvents:
 # Input: None
-# Output: Prints all Network Event evidence objects in the DB.
+# Output: Prints all DOM Event evidence objects in the DB.
 def domEvents():
     evidence = data["evidence"]
     keys = evidence.keys()
