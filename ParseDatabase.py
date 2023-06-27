@@ -14,13 +14,70 @@ data = json.load(file)
 
 # allEvidence:
 # Input: None
-# Output: Prints all evidence objects in the JSON.
+# Output: Prints all evidence objects in the DB.
 def allEvidence():
     evidence = data["evidence"]
     keys = evidence.keys()
-
     for key in keys:
-        print("\n", key, ":", evidence[key])
+        if key == "API_calls":
+            print(key)
+            print(len(evidence[key]))
+        if key == "DOM_events":
+            print(key)
+            print(len(evidence[key]))
+        if key == "Network_events":
+            networkEvents = evidence[key]
+            networkEventCount = 1
+            print("\n%s:" % key)
+            for i in range(0, len(networkEvents)):
+                networkEventKeys = networkEvents[i].keys()
+                print("\tNetwork Event %d." % networkEventCount)
+                for networkEventKey in networkEventKeys:
+                    if networkEventKey == "objectShape":
+                        print("\t\tobjectShape:")
+                        objKeys = networkEvents[i][networkEventKey].keys()
+                        for objKey in objKeys:
+                            print(
+                                "\t\t\t%s: %s"
+                                % (objKey, networkEvents[i][networkEventKey][objKey])
+                            )
+                        continue
+                    print(
+                        "\t\t%s: %s"
+                        % (networkEventKey, networkEvents[i][networkEventKey])
+                    )
+                networkEventCount = networkEventCount + 1
+
+
+# networkEvents:
+# Input: None
+# Output: Prints all Network Event evidence objects in the DB.
+def networkEvents():
+    evidence = data["evidence"]
+    keys = evidence.keys()
+    for key in keys:
+        if key == "Network_events":
+            networkEvents = evidence[key]
+            networkEventCount = 1
+            print("\n%s:" % key)
+            for i in range(0, len(networkEvents)):
+                networkEventKeys = networkEvents[i].keys()
+                print("\tNetwork Event %d." % networkEventCount)
+                for networkEventKey in networkEventKeys:
+                    if networkEventKey == "objectShape":
+                        print("\t\tobjectShape:")
+                        objKeys = networkEvents[i][networkEventKey].keys()
+                        for objKey in objKeys:
+                            print(
+                                "\t\t\t%s: %s"
+                                % (objKey, networkEvents[i][networkEventKey][objKey])
+                            )
+                        continue
+                    print(
+                        "\t\t%s: %s"
+                        % (networkEventKey, networkEvents[i][networkEventKey])
+                    )
+                networkEventCount = networkEventCount + 1
 
 
 # ================================================================================
