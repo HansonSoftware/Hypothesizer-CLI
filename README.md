@@ -2,7 +2,7 @@
 
 A Command Line Interface for interacting with OpenAI's API. There is additional functionality built on top to support [Hypothesizer](https://github.com/Alaboudi1/Hypothesizer-Debugger).
 
-# Getting Started With OpenAI (Walkthrough):
+# Getting Started With OpenAI:
 
 1.  Clone the repo and add a .env file with your OpenAI API Key.
 
