@@ -23,8 +23,24 @@ def allEvidence():
             print(key)
             print(len(evidence[key]))
         if key == "DOM_events":
-            print(key)
-            print(len(evidence[key]))
+            domEvents = evidence[key]
+            domEventCount = 1
+            print("\n%s:" % key)
+            for i in range(0, len(domEvents)):
+                domEventKeys = domEvents[i].keys()
+                print("\tDOM Event %d." % domEventCount)
+                for domEventKey in domEventKeys:
+                    if domEventKey == "objectShape":
+                        print("\t\tobjectShape:")
+                        objKeys = domEvents[i][domEventKey].keys()
+                        for objKey in objKeys:
+                            print(
+                                "\t\t\t%s: %s"
+                                % (objKey, domEvents[i][domEventKey][objKey])
+                            )
+                        continue
+                    print("\t\t%s: %s" % (domEventKey, domEvents[i][domEventKey]))
+                domEventCount = domEventCount + 1
         if key == "Network_events":
             networkEvents = evidence[key]
             networkEventCount = 1
@@ -47,6 +63,37 @@ def allEvidence():
                         % (networkEventKey, networkEvents[i][networkEventKey])
                     )
                 networkEventCount = networkEventCount + 1
+
+
+# domEvents:
+# Input: None
+# Output: Prints all Network Event evidence objects in the DB.
+def domEvents():
+    evidence = data["evidence"]
+    keys = evidence.keys()
+    for key in keys:
+        if key == "API_calls":
+            print(key)
+            print(len(evidence[key]))
+        if key == "DOM_events":
+            domEvents = evidence[key]
+            domEventCount = 1
+            print("\n%s:" % key)
+            for i in range(0, len(domEvents)):
+                domEventKeys = domEvents[i].keys()
+                print("\tDOM Event %d." % domEventCount)
+                for domEventKey in domEventKeys:
+                    if domEventKey == "objectShape":
+                        print("\t\tobjectShape:")
+                        objKeys = domEvents[i][domEventKey].keys()
+                        for objKey in objKeys:
+                            print(
+                                "\t\t\t%s: %s"
+                                % (objKey, domEvents[i][domEventKey][objKey])
+                            )
+                        continue
+                    print("\t\t%s: %s" % (domEventKey, domEvents[i][domEventKey]))
+                domEventCount = domEventCount + 1
 
 
 # networkEvents:
