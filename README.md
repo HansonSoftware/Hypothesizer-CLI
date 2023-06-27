@@ -2,7 +2,7 @@
 
 A Command Line Interface for interacting with OpenAI's API. There is additional functionality built on top to support [Hypothesizer](https://github.com/Alaboudi1/Hypothesizer-Debugger).
 
-## Getting Started:
+# Getting Started With OpenAI (Walkthrough):
 
 1.  Clone the repo and add a .env file with your OpenAI API Key.
 
@@ -15,9 +15,13 @@ A Command Line Interface for interacting with OpenAI's API. There is additional 
 
     You want to make sure this key is not shared.
 
-2.  Run HypothesizerCLI.py from your terminal, follow the prompts.
+2.  cd into OpenAI-Walkthrough and run TestAPI.py from your terminal to make sure you're all set.
 
-## Using ParseRecordings.py:
+3.  TODO: Create Walkthrough
+
+# Using the Parsers
+
+## ParseRecordings.py:
 
 Usage:
 `python3 ParseRecordings.py functionName "fileName.json"`
@@ -34,14 +38,25 @@ Usage:
 Example:
 `python3 ParseRecordings.py exampleEntry "example_recording.json"`
 
-## Using ParseDatabase.py:
+## ParseDatabase.py:
 
 Usage:
 `python3 ParseDatabse.py functionName`
 
 ### List of functions:
 
+Hypotheses
+
 1. exampleHypothesis
+2. allHypotheses
+3. getHypothesisById id
+
+Evidence
+
+4. allEvidence
+5. apiCalls
+6. domEvents
+7. networkEvents
 
 Example:
 `python3 ParseDatabse.py allHypotheses`

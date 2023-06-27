@@ -2,10 +2,11 @@ import openai
 import json
 from decouple import config
 
-API_KEY = config('OPENAI_KEY')
+API_KEY = config("OPENAI_KEY")
 print(API_KEY)
 
 openai.api_key = API_KEY
+
 
 # Example dummy function hard coded to return the same weather
 # In production, this could be your backend API or an external API
@@ -19,10 +20,11 @@ def get_current_weather(location, unit="fahrenheit"):
     }
     return json.dumps(weather_info)
 
+
 # Step 1, send model the user query and what functions it has access to
 def run_conversation():
     response = openai.ChatCompletion.create(
-        model="text-curie-001",
+        model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": "What's the weather like in Boston?"}],
         functions=[
             {
@@ -59,7 +61,7 @@ def run_conversation():
 
         # Step 4, send model the info on the function call and function response
         second_response = openai.ChatCompletion.create(
-            model="text-curie-001",
+            model="gpt-3.5-turbo",
             messages=[
                 {"role": "user", "content": "What is the weather like in boston?"},
                 message,
@@ -71,5 +73,6 @@ def run_conversation():
             ],
         )
         return second_response
+
 
 print(run_conversation())
