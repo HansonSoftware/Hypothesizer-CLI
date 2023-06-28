@@ -57,6 +57,9 @@ Evidence
 5. apiCalls
 6. domEvents
 7. networkEvents
+8. rawAPIEvidence
+9. rawDOMEvidence
+10. rawNetworkEvidence
 
 Example:
 `python3 ParseDatabse.py allHypotheses`

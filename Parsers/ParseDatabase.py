@@ -11,6 +11,59 @@ data = json.load(file)
 # ============================= EVIDENCE PARSING =================================
 # ================================================================================
 
+# rawEvidence:
+# Input: None
+# Output: All evidence objects in raw JSON from the DB
+def rawEvidence():
+    evidence = data["evidence"]
+    keys = evidence.keys()
+    for key in keys:
+        if key == "API_calls":
+            print("API Calls:")
+            print(evidence[key])
+        if key == "DOM_events":
+            print("DOM Events:")
+            print(evidence[key])
+        if key == "Network_events":
+            print("Network Events:")
+            print(evidence[key])
+
+
+# rawAPIEvidence:
+# Input: None
+# Output: All API evidence objects in raw JSON from the DB
+def rawAPIEvidence():
+    evidence = data["evidence"]
+    keys = evidence.keys()
+    for key in keys:
+        if key == "API_calls":
+            print("API Calls:")
+            print(evidence[key])
+
+
+# rawDOMEvidence:
+# Input: None
+# Output: All DOM evidence objects in raw JSON from the DB
+def rawDOMEvidence():
+    evidence = data["evidence"]
+    keys = evidence.keys()
+    for key in keys:
+        if key == "DOM_events":
+            print("DOM Events:")
+            print(evidence[key])
+
+
+# rawNetworkEvidence:
+# Input: None
+# Output: All Network evidence objects in raw JSON from the DB
+def rawNetworkEvidence():
+    evidence = data["evidence"]
+    keys = evidence.keys()
+    for key in keys:
+        if key == "Network_events":
+            print("Network Events:")
+            print(evidence[key])
+
 
 # allEvidence:
 # Input: None
@@ -108,9 +161,6 @@ def domEvents():
     evidence = data["evidence"]
     keys = evidence.keys()
     for key in keys:
-        if key == "API_calls":
-            print(key)
-            print(len(evidence[key]))
         if key == "DOM_events":
             domEvents = evidence[key]
             domEventCount = 1
