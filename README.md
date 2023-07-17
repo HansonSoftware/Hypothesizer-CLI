@@ -1,4 +1,4 @@
-# Hypothesizer-CLI
+# Hypothesizer ChatBot
 
 A Command Line Interface for interacting with OpenAI's API. There is additional functionality built on top to support [Hypothesizer](https://github.com/Alaboudi1/Hypothesizer-Debugger).
 
