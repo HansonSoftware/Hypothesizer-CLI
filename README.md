@@ -1,25 +1,25 @@
-# Hypothesizer-CLI
+# Hypothesizer Command Line Tools
 
-A Command Line Interface for interacting with OpenAI's API. There is additional functionality built on top to support [Hypothesizer](https://github.com/Alaboudi1/Hypothesizer-Debugger).
+A Command Line Interface for interacting with OpenAI's API, parsing our database of hypotheses, and creating Semgrep rules. These tools support [Hypothesizer](https://github.com/Alaboudi1/Hypothesizer-Debugger).
 
-# Getting Started With OpenAI:
+## Using the Hypothesizer-ChatBot:
 
-1.  Clone the repo and add a .env file with your OpenAI API Key.
+1.  Clone the repo and create a .env file then add your OpenAI API Key.
 
     Example:
     .env should contain
 
     ```
-    OPENAI_KEY = abc123secretkey
+    OPENAI_KEY = sk-youropenaikey
     ```
 
     You want to make sure this key is not shared.
 
-2.  cd into OpenAI-Walkthrough and run TestAPI.py from your terminal to make sure you're all set.
+2.  cd into Hypothesizer-ChatBot and run UseAPI.py from your terminal to make sure you're all set.
 
-3.  TODO: Create Walkthrough
+3.  Follow the initial instructions given by the script and follow the prompts for a successful chat!
 
-# Using the Parsers
+## Using the Parsers
 
 ## ParseRecordings.py:
 
