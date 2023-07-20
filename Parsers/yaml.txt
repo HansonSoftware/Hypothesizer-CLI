@@ -1,0 +1,17 @@
+rules:
+  - id: API_26
+    patterns:
+      - pattern: |
+          [$VAR, ...] = useState(...);
+          ...
+          console.log(..., $VAR, ...);
+      - pattern-not: |
+          [$VAR, ...] = useState(...);
+           ...
+           useEffect(...,[$VAR])
+           ...
+           console.log(..., $VAR, ...);
+    message: useEffect call on the state variable is not allowed
+    languages:
+      - javascript
+    severity: WARNING
