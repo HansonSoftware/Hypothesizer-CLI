@@ -1,17 +1,10 @@
 rules:
-  - id: API_26
-    patterns:
-      - pattern: |
-          [$VAR, ...] = useState(...);
-          ...
-          console.log(..., $VAR, ...);
-      - pattern-not: |
-          [$VAR, ...] = useState(...);
-           ...
-           useEffect(...,[$VAR])
-           ...
-           console.log(..., $VAR, ...);
-    message: useEffect call on the state variable is not allowed
+  - id: multiple-event-listeners
     languages:
       - javascript
+    message: Multiple event listeners on the same element
+    pattern: |
+      $ELEMENT.addEventListener($EVENT, $HANDLER, ...); \n
+      ... \n
+      $ELEMENT.addEventListener($EVENT, $HANDLER, ...); \n
     severity: WARNING

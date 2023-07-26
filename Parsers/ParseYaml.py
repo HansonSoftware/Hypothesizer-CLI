@@ -11,7 +11,7 @@ def remove_extra_spaces(string):
 # yamlToJSON:
 # Input: a string containing a YAML formatted semgrep query (fetched from file)
 # Output: a string containing a JSON formatted semgrep query
-# Assumptions made: last pattern is followed by the "message" component of the query
+# Assumptions made: last pattern is followed by the "message", "severity", or "languages" component of the query
 def yamlToJSON(yaml_initial):
     retstring = "{\n\t\"patterns\": [\n\t\t{\n\t\t\t"
     yaml = yaml_initial
@@ -33,6 +33,10 @@ def yamlToJSON(yaml_initial):
             thirdpoint = yaml.find("- pattern")
             if(thirdpoint==-1):
                 thirdpoint=yaml.find("message")
+            if(thirdpoint==-1):
+                thirdpoint=yaml.find("severity")
+            if(thirdpoint==-1):
+                thirdpoint=yaml.find("languages")
             #add pattern to return string
             retstring += " \"" + remove_extra_spaces(yaml[3:thirdpoint].strip().replace("\n","\\n")) + "\"\n\t\t},\n\t\t{\n\t\t\t"
             #progress yaml string
@@ -44,6 +48,10 @@ def yamlToJSON(yaml_initial):
         retstring += "\""+ yaml[firstpoint:secondpoint-1] + "\":"
         yaml = yaml[secondpoint:]
         thirdpoint=yaml.find("message")
+        if(thirdpoint==-1):
+            thirdpoint=yaml.find("severity")
+        if(thirdpoint==-1):
+            thirdpoint=yaml.find("languages")
         retstring += " \"" + remove_extra_spaces(yaml[3:thirdpoint].strip().replace("\n","\\n")) + "\"\n\t\t},\n\t\t{\n\t\t\t"
     #add the ID to the return string
     fourthpoint = yaml_initial.find("id")
