@@ -86,13 +86,13 @@ def welcome():
     )
     print(RED + "Be sure to place your prompt into Prompt.txt!" + NORMAL)
     print(RED + "Be sure to place your system instruction into System.txt!" + NORMAL)
-    print(BLUE + "Model: " + NORMAL + "[turbo, turbo-16k] Enter one of these values.")
+    print(BLUE + "Model: " + NORMAL + "[turbo, turbo-16k, gpt-4] Enter one of these values.")
     print(YELLOW + "Temperature: " + NORMAL + "Enter a value between 0.0 and 2.0")
 
 
 def getInputs():
     # Chat Model Validation:
-    validModels = ["turbo", "turbo-16k"]
+    validModels = ["turbo", "turbo-16k", "gpt-4"]
     while True:
         model = input("Enter the " + BLUE + "Model " + NORMAL + "you want to use: ")
         if model.lower() in validModels:
@@ -100,9 +100,11 @@ def getInputs():
                 model = "gpt-3.5-turbo"
             elif model.lower() == "turbo-16k":
                 model = "gpt-3.5-turbo-16k"
+            elif model.lower() == "gpt-4":
+                model = "gpt-4"
             break
         else:
-            print('Invalid Chat Model. Please enter "turbo" OR "turbo-16k". Try again.')
+            print('Invalid Chat Model. Please enter "turbo" OR "turbo-16k" OR "gpt-4". Try again.')
     # Temperature Validation:
     while True:
         try:
@@ -131,25 +133,31 @@ def printChoices(model, temp):
 
 def main():
     welcome()
-    model, temp = getInputs()
-    file = open("Prompt.txt", "r")
-    prompt = file.read()
-    file.close()
-    printChoices(model, temp)
-    print("\nPrompt:\n%s" % prompt)
-    file = open("System.txt", "r")
-    instruction = file.read()
-    file.close()
-    print("System Instruction:\n%s" % instruction)
-
     choice = input("\nProceed? (Y/n): ")
-
     # Proceed:
     if choice.lower() in ["y", "yes"]:
-        print(GREEN + "Proceeding..." + NORMAL)
-        print("\nStarting conversation with Chat GPT:")
-        # Start the chat
-        interactiveChat(model, instruction, prompt, temp)
+        model, temp = getInputs()
+        file = open("Prompt.txt", "r")
+        prompt = file.read()
+        file.close()
+        printChoices(model, temp)
+        print("\nPrompt:\n%s" % prompt)
+        file = open("System.txt", "r")
+        instruction = file.read()
+        file.close()
+        print("System Instruction:\n%s" % instruction)
+
+        choice = input("\nProceed? (Y/n): ")
+
+        # Proceed:
+        if choice.lower() in ["y", "yes"]:
+            print(GREEN + "Proceeding..." + NORMAL)
+            print("\nStarting conversation with Chat GPT:")
+            # Start the chat
+            interactiveChat(model, instruction, prompt, temp)
+        # Exit:
+        else:
+            print(RED + "Exiting..." + NORMAL)
     # Exit:
     else:
         print(RED + "Exiting..." + NORMAL)

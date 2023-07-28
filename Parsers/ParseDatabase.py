@@ -1,8 +1,8 @@
 import json
 import sys
 
-# Open Hypotheses DB
-file = open("hypotheses.json")
+# Open Hypotheses DB (testDB for now)
+file = open("testDB.json")
 # Load JSON object as a dict
 data = json.load(file)
 
@@ -10,6 +10,15 @@ data = json.load(file)
 # ================================================================================
 # ============================= EVIDENCE PARSING =================================
 # ================================================================================
+
+# insertEvidence:
+# input: JSON evidence object in input.txt
+# output: None (inserts evidence object into DB)
+def insertEvidence():
+    evidence = data["evidence"]
+    # TODO:
+    # Validate evidence in input.txt is valid (correct shape)
+    # Insert at the end of the evidence[]
 
 # rawEvidence:
 # Input: None
@@ -217,6 +226,14 @@ def networkEvents():
 # ============================= HYPOTHESES PARSING ===============================
 # ================================================================================
 
+# insertHypothesis:
+# input: JSON hypothesis object in input.txt
+# output: None (inserts hypothesis object into DB)
+def insertHypothesis():
+    hypotheses = data["hypotheses"]
+    # TODO:
+    # Validate hypothesis in input.txt is valid (correct shape)
+    # Insert at the end of the hypotheses[]
 
 # allHypotheses:
 # Input: None
