@@ -58,6 +58,6 @@ def yamlToJSON(yaml_initial):
     retstring = retstring[0:-9] + "\n\t],\n\t\"id\": \"" + yaml_initial[fourthpoint+4:yaml_initial[fourthpoint:].find("\n")+fourthpoint] + "\"\n}"
     return retstring
 
-with open('yaml.txt','r') as file:
+with open('input.txt','r') as file:
     data = file.read();
 print(yamlToJSON(data))
