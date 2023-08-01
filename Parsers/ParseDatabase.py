@@ -1,5 +1,6 @@
 import json
 import sys
+import re
 
 # Open Hypotheses DB (testDB for now)
 file = open("testDB.json")
@@ -231,9 +232,24 @@ def networkEvents():
 # output: None (inserts hypothesis object into DB)
 def insertHypothesis():
     hypotheses = data["hypotheses"]
-    # TODO:
-    # Validate hypothesis in input.txt is valid (correct shape)
-    # Insert at the end of the hypotheses[]
+    #Read in hypothesis from input.txt as JSON object
+    try:
+        with open('input.txt', 'r') as file:
+            hypothesis = json.load(file)
+    except json.decoder.JSONDecodeError as e:
+        print("Error parsing in hypothesis from input.txt, please make sure your hypothesis is formatted as a JSON object.")
+        return
+    #Use regex to (roughly) validate hypothesis
+    if not 'id' or not 'hypothesis' or not 'description' or not 'tags' in hypothesis:
+        print("Invalid hypothesis format, please make sure that your hypothesis is formatted properly.")
+    else:
+        #Push hypothesis to hypothesis array, write to TEMPORARY hypothesis.json file for testing purposes
+        hypotheses.append(hypothesis)
+        data["hypotheses"] = hypotheses
+        data_string = json.dumps(data, indent=4)
+        with open('hypotheses_temp.json', 'w') as file:
+            file.write(data_string)
+
 
 # allHypotheses:
 # Input: None
