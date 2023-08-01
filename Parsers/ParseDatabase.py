@@ -15,11 +15,21 @@ data = json.load(file)
 # input: JSON evidence object in input.txt
 # output: None (inserts evidence object into DB)
 def insertEvidence():
-    evidence = data["evidence"]
+    evidence = data["evidence"]["API_calls"]
     # TODO:
     # Validate evidence in input.txt is valid (correct shape)
     # Insert at the end of the evidence[]
-
+    try:
+        with open('input.txt', 'r') as file:
+            newEvidence = json.load(file)
+    except json.decoder.JSONDecodeError as e:
+        print("Error parsing in evidence from input.txt, plkease make sure your evidence is formatted as a JSON object.")
+        return
+    evidence.append(newEvidence)
+    data["evidence"]["API_calls"] = evidence
+    data_string = json.dumps(data, indent = 4)
+    with open('evidence_temp.json', 'w') as file:
+        file.write(data_string)
 # rawEvidence:
 # Input: None
 # Output: All evidence objects in raw JSON from the DB
