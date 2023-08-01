@@ -1,6 +1,5 @@
 import json
 import sys
-import re
 
 # Open Hypotheses DB (testDB for now)
 file = open("testDB.json")
@@ -243,7 +242,7 @@ def insertHypothesis():
     if not 'id' or not 'hypothesis' or not 'description' or not 'tags' in hypothesis:
         print("Invalid hypothesis format, please make sure that your hypothesis is formatted properly.")
     else:
-        #Push hypothesis to hypothesis array, write to TEMPORARY hypothesis.json file for testing purposes
+        #Push hypothesis to hypothesis array, write data to TEMPORARY hypothesis.json file for testing purposes
         hypotheses.append(hypothesis)
         data["hypotheses"] = hypotheses
         data_string = json.dumps(data, indent=4)
