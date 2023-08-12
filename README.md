@@ -82,7 +82,7 @@ _These tools support [Hypothesizer](https://github.com/Alaboudi1/Hypothesizer-De
    ```python3 ParseRecordings.py exampleEntry example_recording.json```
 
 
-    **Functions:**
+    **List of functions:**
 
     1. exampleEntry - _Prints the first object in the recording._
     2. entireDataset - _Prints all objects in the recording._
