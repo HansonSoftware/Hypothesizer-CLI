@@ -113,9 +113,8 @@ _These tools support [Hypothesizer](https://github.com/Alaboudi1/Hypothesizer-De
 _Please explore the code in UseAPI.py to check out just how easy it is to set up a simple ChatBot with OpenAI and some Python. This is just a simple chatbot, we found ourselves keeping with Phind and ChatGPT’S UI most of the time, but this chatbot can be improved upon in the future._
 
 
-# **JSON Database**
+# **Database**
 
-_The Hypothesizer database exists in the form of a json file called hypotheses.json. It is a large json object separated into 2 lists: evidence and hypotheses. The structure of each is explained below._
+_The Hypothesizer database exists in the form of a json file called hypotheses.json. It is a large json object separated into 2 lists: evidence and hypotheses._
 
-
-## **_Database Structure: Take a look at hypotheses.json in the repo for examples._**
+**_Database Structure: Take a look at hypotheses.json in the repo for examples._**
